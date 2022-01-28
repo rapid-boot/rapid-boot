@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rapidboot.demo.dao.LoginAppHistoryDao">
+
+    <sql id="LoginAppHistoryColumns">
+                        a.id AS "id",
+                a.loginId AS "loginId",
+                a.acction AS "acction",
+                a.role AS "role",
+                a.loginIp AS "loginIp",
+                a.loginTime AS "loginTime",
+                a.loginMethod AS "loginMethod",
+                a.loginType AS "loginType",
+                a.token AS "token",
+                a.uuid AS "uuid",
+                a.appVersion AS "appVersion",
+                a.vendor AS "vendor",
+                a.model AS "model",
+                a.sysVersion AS "sysVersion"
+    </sql>
+
+    <sql id="LoginAppHistoryJoins">
+    </sql>
+
+    <select id="get" resultType="LoginAppHistory">
+        SELECT
+        <include refid="LoginAppHistoryColumns"/>
+        FROM t_login_app_history a
+        <include refid="LoginAppHistoryJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="findList" resultType="LoginAppHistory">
+        SELECT
+        <include refid="LoginAppHistoryColumns"/>
+        FROM t_login_app_history a
+        <include refid="LoginAppHistoryJoins"/>
+        <where>
+                    <if test="id != null     ">
+                            AND a.id =  #{id}
+                    </if>
+                    <if test="loginId != null     ">
+                            AND a.loginId =  #{loginId}
+                    </if>
+                    <if test="acction != null    and acction != ''  ">
+                    </if>
+                    <if test="role != null     ">
+                            AND a.role =  #{role}
+                    </if>
+                    <if test="loginIp != null    and loginIp != ''  ">
+                    </if>
+                    <if test="loginTime != null     ">
+                    </if>
+                    <if test="loginMethod != null     ">
+                            AND a.loginMethod =  #{loginMethod}
+                    </if>
+                    <if test="loginType != null     ">
+                            AND a.loginType =  #{loginType}
+                    </if>
+                    <if test="token != null    and token != ''  ">
+                    </if>
+                    <if test="uuid != null    and uuid != ''  ">
+                    </if>
+                    <if test="appVersion != null    and appVersion != ''  ">
+                    </if>
+                    <if test="vendor != null    and vendor != ''  ">
+                    </if>
+                    <if test="model != null    and model != ''  ">
+                    </if>
+                    <if test="sysVersion != null    and sysVersion != ''  ">
+                    </if>
+
+                    <if test="loginTime != null     ">
+                        AND a.loginTime
+                        BETWEEN #{beginLoginTime} AND #{endLoginTime}
+                    </if>
+            <if test="batchIdList != null  and !batchIdList.isEmpty()  ">
+                AND
+                id IN
+                <foreach collection="batchIdList" item="id" index="index"
+                         open="(" close=")" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+        ORDER BY
+        <choose>
+            <when test="orderBy != null and orderBy != ''">
+                ${orderBy} a.id desc
+            </when>
+            <otherwise>
+                a.id desc
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_login_app_history(
+                            loginId,
+                    acction,
+                    role,
+                    loginIp,
+                    loginTime,
+                    loginMethod,
+                    loginType,
+                    token,
+                    uuid,
+                    appVersion,
+                    vendor,
+                    model,
+                    sysVersion
+        ) VALUES (
+                            #{loginId},
+                    #{acction},
+                    #{role},
+                    #{loginIp},
+                    #{loginTime},
+                    #{loginMethod},
+                    #{loginType},
+                    #{token},
+                    #{uuid},
+                    #{appVersion},
+                    #{vendor},
+                    #{model},
+                    #{sysVersion}
+        )
+    </insert>
+
+    <insert id="batchInsert" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
+        INSERT INTO t_login_app_history
+        (
+                            loginId,
+                    acction,
+                    role,
+                    loginIp,
+                    loginTime,
+                    loginMethod,
+                    loginType,
+                    token,
+                    uuid,
+                    appVersion,
+                    vendor,
+                    model,
+                    sysVersion
+        )
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+                                    #{item.loginId},
+                        #{item.acction},
+                        #{item.role},
+                        #{item.loginIp},
+                        #{item.loginTime},
+                        #{item.loginMethod},
+                        #{item.loginType},
+                        #{item.token},
+                        #{item.uuid},
+                        #{item.appVersion},
+                        #{item.vendor},
+                        #{item.model},
+                        #{item.sysVersion}
+            )
+        </foreach>
+    </insert>
+
+    <update id="update">
+        UPDATE t_login_app_history
+        <set>
+                <if test="id != null  ">
+                    id = #{id},
+                </if>
+                <if test="loginId != null  ">
+                    loginId = #{loginId},
+                </if>
+                <if test="acction != null and acction != '' ">
+                    acction = #{acction},
+                </if>
+                <if test="role != null  ">
+                    role = #{role},
+                </if>
+                <if test="loginIp != null and loginIp != '' ">
+                    loginIp = #{loginIp},
+                </if>
+                <if test="loginTime != null  ">
+                    loginTime = #{loginTime},
+                </if>
+                <if test="loginMethod != null  ">
+                    loginMethod = #{loginMethod},
+                </if>
+                <if test="loginType != null  ">
+                    loginType = #{loginType},
+                </if>
+                <if test="token != null and token != '' ">
+                    token = #{token},
+                </if>
+                <if test="uuid != null and uuid != '' ">
+                    uuid = #{uuid},
+                </if>
+                <if test="appVersion != null and appVersion != '' ">
+                    appVersion = #{appVersion},
+                </if>
+                <if test="vendor != null and vendor != '' ">
+                    vendor = #{vendor},
+                </if>
+                <if test="model != null and model != '' ">
+                    model = #{model},
+                </if>
+                <if test="sysVersion != null and sysVersion != '' ">
+                    sysVersion = #{sysVersion},
+                </if>
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
+    <delete id="delete">
+        DELETE FROM t_login_app_history
+        <where> id= #{id}</where>
+    </delete>
+
+
+    <delete id="batchDelete">
+        DELETE FROM t_login_app_history
+        <where>
+            id IN
+            <foreach collection="batchIdList" item="id" index="index"
+                     open="(" close=")" separator=",">
+                #{id}
+            </foreach>
+        </where>
+    </delete>
+
+</mapper>

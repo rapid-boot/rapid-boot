@@ -1,0 +1,254 @@
+{
+  "date": "2022-01-28",
+  "queryHasBigDecimal": false,
+  "auto": true,
+  "packageName": "packagename",
+  "author": "刘广峰",
+  "columns": [
+    {
+      "formType": "Input",
+      "remark": "",
+      "istNotNull": false,
+      "capitalColumnName": "Id",
+      "queryType": "=",
+      "columnType": "Long",
+      "columnShow": true,
+      "changeColumnName": "id",
+      "formShow": true,
+      "columnKey": "PRI",
+      "dateAnnotation": "CreationTimestamp",
+      "columnName": "id"
+    },
+    {
+      "columnType": "Long",
+      "formType": "Input",
+      "columnShow": true,
+      "changeColumnName": "loginId",
+      "remark": "登录ID",
+      "formShow": true,
+      "columnKey": "",
+      "istNotNull": true,
+      "dateAnnotation": "CreationTimestamp",
+      "columnName": "loginId",
+      "capitalColumnName": "Loginid"
+    },
+    {
+      "formType": "Input",
+      "remark": "登录账号",
+      "istNotNull": true,
+      "capitalColumnName": "Acction",
+      "queryType": "Between",
+      "columnType": "String",
+      "columnShow": true,
+      "changeColumnName": "acction",
+      "formShow": true,
+      "columnKey": "",
+      "dateAnnotation": "CreationTimestamp",
+      "columnName": "acction"
+    },
+    {
+      "formType": "Input",
+      "remark": "角色 1-客户 2-车辆",
+      "istNotNull": false,
+      "capitalColumnName": "Role",
+      "queryType": "=",
+      "columnType": "Integer",
+      "columnShow": true,
+      "changeColumnName": "role",
+      "formShow": true,
+      "columnKey": "",
+      "columnName": "role"
+    },
+    {
+      "formType": "Input",
+      "remark": "登录IP",
+      "istNotNull": false,
+      "capitalColumnName": "Loginip",
+      "queryType": "NotNull",
+      "columnType": "String",
+      "columnShow": true,
+      "changeColumnName": "loginIp",
+      "formShow": true,
+      "columnKey": "",
+      "columnName": "loginIp"
+    },
+    {
+      "formType": "Input",
+      "remark": "登录时间",
+      "istNotNull": true,
+      "capitalColumnName": "Logintime",
+      "queryType": "Like",
+      "columnType": "LocalDateTime",
+      "columnShow": true,
+      "changeColumnName": "loginTime",
+      "formShow": true,
+      "columnKey": "",
+      "dateAnnotation": "CreationTimestamp",
+      "columnName": "loginTime"
+    },
+    {
+      "formType": "Input",
+      "remark": "登录方式 1-自动登录 2-账号密码登录",
+      "istNotNull": true,
+      "capitalColumnName": "Loginmethod",
+      "queryType": "!=",
+      "columnType": "Integer",
+      "columnShow": true,
+      "changeColumnName": "loginMethod",
+      "formShow": true,
+      "columnKey": "",
+      "columnName": "loginMethod"
+    },
+    {
+      "formType": "Input",
+      "remark": "登录介质 1-android 2-IOS 3-PC 4-WAP",
+      "istNotNull": true,
+      "capitalColumnName": "Logintype",
+      "queryType": "<=",
+      "columnType": "Integer",
+      "columnShow": true,
+      "changeColumnName": "loginType",
+      "formShow": true,
+      "columnKey": "",
+      "dateAnnotation": "UpdateTimestamp",
+      "columnName": "loginType"
+    },
+    {
+      "formType": "Input",
+      "remark": "登录token",
+      "istNotNull": false,
+      "capitalColumnName": "Token",
+      "queryType": "=",
+      "columnType": "String",
+      "columnShow": true,
+      "changeColumnName": "token",
+      "formShow": true,
+      "columnKey": "",
+      "columnName": "token"
+    },
+    {
+      "formType": "Input",
+      "remark": "登录介质的UUID",
+      "istNotNull": false,
+      "capitalColumnName": "Uuid",
+      "queryType": "=",
+      "columnType": "String",
+      "columnShow": true,
+      "changeColumnName": "uuid",
+      "formShow": true,
+      "columnKey": "",
+      "columnName": "uuid"
+    },
+    {
+      "columnType": "String",
+      "formType": "Input",
+      "columnShow": true,
+      "changeColumnName": "appVersion",
+      "remark": "当前软件版本",
+      "formShow": true,
+      "columnKey": "",
+      "istNotNull": false,
+      "columnName": "appVersion",
+      "capitalColumnName": "Appversion"
+    },
+    {
+      "columnType": "String",
+      "formType": "Input",
+      "columnShow": true,
+      "changeColumnName": "vendor",
+      "remark": "手机设备厂家",
+      "formShow": true,
+      "columnKey": "",
+      "istNotNull": false,
+      "columnName": "vendor",
+      "capitalColumnName": "Vendor"
+    },
+    {
+      "columnType": "String",
+      "formType": "Input",
+      "columnShow": true,
+      "changeColumnName": "model",
+      "remark": "手机型号",
+      "formShow": true,
+      "columnKey": "",
+      "istNotNull": false,
+      "columnName": "model",
+      "capitalColumnName": "Model"
+    },
+    {
+      "columnType": "String",
+      "formType": "Input",
+      "columnShow": true,
+      "changeColumnName": "sysVersion",
+      "remark": "手机系统版本号",
+      "formShow": true,
+      "columnKey": "",
+      "istNotNull": false,
+      "columnName": "sysVersion",
+      "capitalColumnName": "Sysversion"
+    }
+  ],
+  "moduleName": "com.modelname",
+  "apiAlias": "XXX",
+  "pkColumnType": "Long",
+  "className": "TLoginAppHistory",
+  "hasBigDecimal": false,
+  "pkCapitalColName": "Id",
+  "hasQuery": true,
+  "tableName": "t_login_app_history",
+  "dicts": [],
+  "hasTimestamp": false,
+  "queryColumns": [
+    {
+      "$ref": "$.columns[0]"
+    },
+    {
+      "$ref": "$.columns[3]"
+    },
+    {
+      "$ref": "$.columns[4]"
+    },
+    {
+      "$ref": "$.columns[5]"
+    },
+    {
+      "$ref": "$.columns[6]"
+    },
+    {
+      "$ref": "$.columns[7]"
+    },
+    {
+      "$ref": "$.columns[8]"
+    },
+    {
+      "$ref": "$.columns[9]"
+    }
+  ],
+  "hasDict": false,
+  "changeClassName": "tLoginAppHistory",
+  "hasDateAnnotation": true,
+  "isNotNullColumns": [
+    {
+      "$ref": "$.columns[1]"
+    },
+    {
+      "$ref": "$.columns[2]"
+    },
+    {
+      "$ref": "$.columns[5]"
+    },
+    {
+      "$ref": "$.columns[6]"
+    },
+    {
+      "$ref": "$.columns[7]"
+    }
+  ],
+  "queryHasTimestamp": false,
+  "betweens": [
+    {
+      "$ref": "$.columns[2]"
+    }
+  ],
+  "pkChangeColName": "id"
+}
