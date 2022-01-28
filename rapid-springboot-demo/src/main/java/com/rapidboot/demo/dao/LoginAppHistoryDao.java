@@ -8,7 +8,7 @@ import com.rapidboot.common.persistence.CrudDao;
 /**
 * DAO接口
 * @author 广峰 <gf@gfzj.us>
-* @date 2022-01-29 02:17
+* @date 2022-01-29 02:41
 **/
 @Repository
 public interface LoginAppHistoryDao extends CrudDao<LoginAppHistory> {

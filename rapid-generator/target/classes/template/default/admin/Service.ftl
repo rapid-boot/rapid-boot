@@ -2,7 +2,7 @@ package ${packageName}.service;
 
 import com.rapidboot.common.persistence.CrudService;
 import ${packageName}.domain.${className};
-import ${packageName}.dao.${className};
+import ${packageName}.dao.${className}Dao;
 import ${packageName}.dto.${className}QueryDTO;
 import java.util.List;
 import org.springframework.stereotype.Service;

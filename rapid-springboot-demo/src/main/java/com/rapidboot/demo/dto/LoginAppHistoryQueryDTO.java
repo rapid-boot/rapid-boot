@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
 * @description Query 对象 用来接收页面传递过来的查询条件参数,并将其传递到 serveice 层，dao 层
 * @author 广峰 <gf@gfzj.us>
-* @date 2022-01-29 02:17
+* @date 2022-01-29 02:41
 **/
 @ApiModel(value = "LoginAppHistoryQueryDTO", description="这个是很牛逼的接口，其实直接引用 table 的介绍就行了,先偷懒 查询参数对象")
 @Data

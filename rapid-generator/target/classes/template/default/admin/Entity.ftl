@@ -1,11 +1,10 @@
 package ${packageName}.domain;
 
 import lombok.Data;
-import cn.hutool.core.bean.BeanUtil;
+import org.springframework.beans.BeanUtils;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 import io.swagger.annotations.*;
-import cn.hutool.core.bean.copier.CopyOptions;
 import javax.persistence.*;
 import com.rapidboot.common.persistence.DataEntity;
 
@@ -77,6 +76,6 @@ public class ${className} extends DataEntity<${className}>{
 </#if>
 
 public void copy(${className} source){
-BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));
+    BeanUtils.copyProperties(source, this);
 }
 }

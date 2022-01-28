@@ -53,7 +53,7 @@ public class App {
     private static final Pattern classPattern = Pattern.compile(" (class|interface|enum) (.*?) ");
     private static final Pattern mapperPattern = Pattern.compile("<(.*?)mapper(.*?)namespace(.*?)=(.*?)\"(.*?)\"(.*?)>");
     private static final Pattern outputPattern = Pattern.compile("<!--(.*?)output:(.*?)-->");
-    private static final String outputDir = "/data/github/rapid-boot/rapid-boot/rapid-springboot-demo/src/main/";
+    private static final String outputDir = new File(ClassLoader.getSystemResource("").getPath()).getParentFile().getParentFile().getParentFile().getAbsolutePath() + "/rapid-springboot-demo/src/main/";
 
     private static void save(String content) {
         String packageName = null;
